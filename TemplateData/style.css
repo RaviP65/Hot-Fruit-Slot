@@ -22,6 +22,8 @@ body { padding: 0; margin: 0 }
 }
 #myImage2{
     display: none;
+    max-height: 150%;
+    max-width: 150%; 
     margin: 0;
     padding: 0;
     z-index: 9998;
@@ -29,5 +31,4 @@ body { padding: 0; margin: 0 }
     bottom: 0;
     left: 0;
     right: 0;
-    max-height: 100%;
 }
