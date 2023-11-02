@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <body onload="handleOrientationChange()">
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Hot Fruit Slot</title>
@@ -37,6 +38,25 @@
       // Modify or remove this function to customize the visually presented
       // way that non-critical warnings and error messages are presented to the
       // user.
+
+      function handleOrientationChange() {
+        if (window.orientation === 0 || window.orientation === 180) {
+          // Portrait orientation
+          console.log("potrait mode");
+          document.getElementById("myImage").style.display = "block";
+          document.getElementById("myImage2").style.display = "block";
+          // Perform actions specific to portrait orientation
+        } else if (window.orientation === 90 || window.orientation === -90) {
+          // Landscape orientation
+          console.log("landscape mode");
+          document.getElementById("myImage").style.display = "none";
+          document.getElementById("myImage2").style.display = "none";
+          // Perform actions specific to landscape orientation
+        }
+      }
+
+      window.addEventListener("orientationchange", handleOrientationChange);
+
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
@@ -89,7 +109,7 @@
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
 
-        unityShowBanner('WebGL builds are not supported on mobile devices.');
+       // unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
